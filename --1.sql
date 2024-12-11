@@ -18,7 +18,7 @@
 -- BAD DEBT W/OFF
 
 SELECT transaction_description, SUM(CASE WHEN amt < 0 THEN amt ELSE 0 END) AS credit,
-    SUM(CASE WHEN amt > 0 THEN amt ELSE 0 END) AS debit, sum(amt) as balance, CASE WHEN SUM(AMT)>0 THEN 'LOSS' WHEN SUM(AMT) <0 THEN 'PROFIT' END PROFIT_LOSS  from transactiondata
+    SUM(CASE WHEN amt > 0 THEN amt ELSE 0 END) AS debit, sum(amt) as balance, CASE WHEN SUM(AMT)>0 THEN 'LOSS' WHEN SUM(AMT) <0 THEN 'PROFIT' END PROFIT_LOSS INTO TEMPORARY ASSETS  from transactiondata
 WHERE transaction_description in ('CREDIT TRANSFER',
 'TEL CR TRANSFER',
 'MOBILE PAYMENT CR',
@@ -38,3 +38,6 @@ WHERE transaction_description in ('CREDIT TRANSFER',
 'BAD DEBT W/OFF')
 GROUP BY transaction_description
 ;
+
+--H0W MUCH ARE WE MAKING FROM THE ASSETS TRANSACTIONS OVER --THE PAST TWO YEARS
+
