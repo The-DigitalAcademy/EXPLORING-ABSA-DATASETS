@@ -14,7 +14,7 @@ con <- dbConnect(
   password = "Will"
 )
 
-# Write an SQL query to fetch data from a table
+#--------------------Write an SQL query to fetch data from a table
 query <- "SELECT * from external_credit"
 
 # Execute the query and store the result in a dataframe
@@ -23,4 +23,12 @@ External_Credit <- dbGetQuery(con, query)
 # View the imported data
 print(External_Credit)
 
- 
+dt.summary <- summary(External_Credit)
+print(dt.summary)
+
+#-------------------Write an SQL query to fetch data from a table
+query.asset <- "SELECT * from asset_21_22"
+
+asset_21_22 <- dbGetQuery(con, query.asset)
+asset.summary <- summary(asset_21_22)
+print(asset.summary)
