@@ -26,9 +26,18 @@ print(External_Credit)
 dt.summary <- summary(External_Credit)
 print(dt.summary)
 
-#-------------------Write an SQL query to fetch data from a table
+#-------------------Asset
 query.asset <- "SELECT * from asset_21_22"
 
 asset_21_22 <- dbGetQuery(con, query.asset)
 asset.summary <- summary(asset_21_22)
 print(asset.summary)
+
+plot(asset_21_22$transaction_description,asset_21_22$balance, ylim=23000)
+
+#-----------------Digital Payment Cr
+query.digital <- "SELECT * from digital_payment_cr"
+
+digital_payment_cr <- dbGetQuery(con, query.digital)
+digital.summary <- summary(digital_payment_cr)
+print(digital.summary)
