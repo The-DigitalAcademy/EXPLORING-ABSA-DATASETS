@@ -1,6 +1,7 @@
 #install.packages("DBI")
 #install.packages("RPostgres")
-
+#install.packages("ggplot2")
+library(ggplot2)
 library(DBI)
 library(RPostgres)
 
@@ -33,7 +34,16 @@ asset_21_22 <- dbGetQuery(con, query.asset)
 asset.summary <- summary(asset_21_22)
 print(asset.summary)
 
-plot(asset_21_22$transaction_description,asset_21_22$balance, ylim=23000)
+
+
+# Create the boxplot
+ggplot(asset_21_22, aes(x = transaction_description, y = balance, fill = transaction_description)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of Balances by Transaction Type",
+       x = "Transaction Type",
+       y = "Balance") +
+  theme_minimal()
+
 
 #-----------------Digital Payment Cr
 query.digital <- "SELECT * from digital_payment_cr"
