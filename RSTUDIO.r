@@ -1,6 +1,6 @@
-#install.packages("DBI")
-#install.packages("RPostgres")
-#install.packages("ggplot2")
+install.packages("DBI")
+install.packages("RPostgres")
+install.packages("ggplot2")
 library(ggplot2)
 library(DBI)
 library(RPostgres)
@@ -12,7 +12,7 @@ con <- dbConnect(
   host = "localhost",       # e.g., "localhost" or an IP address
   port = 5432,              # Default PostgreSQL port
   user = "postgres",
-  password = "Will"
+  password = ""
 )
 
 #--------------------Write an SQL query to fetch data from a table
