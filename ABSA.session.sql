@@ -4,15 +4,6 @@
 
 
 
-CREATE TABLE customer (
-    CUSTOMER_IDENTIFIER VARCHAR(225) PRIMARY KEY,  -- Adjust the size as per your data
-    DATE_LAST_UPDATED TIMESTAMP,                        -- Use DATE for date columns
-    SEX_CODE BOOLEAN,                              -- BOOLEAN for binary data (true/false or 0/1)
-    INCOME_GROUP_CODE VARCHAR(225),                -- Adjust size based on your income group codes
-    NUMBER_OF_ACCOUNTS INT,                       -- Use INT for numeric data
-    OCCUPATIONAL_STATUS_CODE VARCHAR(225),         -- Adjust size as needed
-    AGE INT                                       -- Use INT for age
-);
 
 
 --2.transaction
