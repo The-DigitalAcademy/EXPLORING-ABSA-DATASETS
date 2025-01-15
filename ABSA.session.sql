@@ -2,6 +2,19 @@
 --primary keys:customer_identifeir
 --foreign key:income_group_code
 
+
+
+CREATE TABLE customer (
+    CUSTOMER_IDENTIFIER VARCHAR(225) PRIMARY KEY,  -- Adjust the size as per your data
+    DATE_LAST_UPDATED TIMESTAMP,                        -- Use DATE for date columns
+    SEX_CODE BOOLEAN,                              -- BOOLEAN for binary data (true/false or 0/1)
+    INCOME_GROUP_CODE VARCHAR(225),                -- Adjust size based on your income group codes
+    NUMBER_OF_ACCOUNTS INT,                       -- Use INT for numeric data
+    OCCUPATIONAL_STATUS_CODE VARCHAR(225),         -- Adjust size as needed
+    AGE INT                                       -- Use INT for age
+);
+
+
 --2.transaction
 --primary key:transaction ID
 --foreign key:customer_identifier
@@ -22,18 +35,7 @@
 
 --For transactions categorized as DC_Unpaid, will customers be able to settle their outstanding balances based on their account_balance? Additionally, to which income group 
 --do these customers belong?
-SELECT c.customer_identifier as customer_id ,i.income_group_desc as income_group, c.number_of_accounts as no_accounts,t.amt as amount
- --INTO TABLE dc_unpaid_owed
-FROM
-  transactiondata t
-  join customer c
-  on c.customer_identifier = t.customer_identifier
-  JOIN income_group i
-  on c.income_group_code = i.income_group_code
-WHERE
-  amt <0-- customer who would unable to repay DC UNPAID BASED ON THEIR ACCOUNT BALANCE
-ORDER BY
-  amt;
+
 
 --SELECT * FROM dc_unpaid_owed;
 
