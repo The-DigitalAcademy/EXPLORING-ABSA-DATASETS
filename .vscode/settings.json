@@ -9,6 +9,15 @@
             "database": "absadatabase",
             "username": "postgres",
             "password": ""
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "ABSA1",
+            "username": "postgres",
+            "database": "absadatabase"
         }
     ]
 }
